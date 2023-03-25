@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>GUVI Project- User Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css">
+
+<script language="javascript"  type="text/javascript">
+
+function GetURLParameter(sParam)
+{
+       
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) 
+    {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) 
+        {
+            return sParameterName[1];
+        }
+    }
+}
+
+function load()
+{
+var succ = GetURLParameter('succ');
+if(succ=="1" || succ==1)
+{
+  alert("Data Saved Successfully.")
+}
+else
+{
+  var regid = GetURLParameter('regid');
+var name = GetURLParameter('name');
+var email = GetURLParameter('email');
+var mobile = GetURLParameter('mobile');
+
+document.getElementById('cregid').value= regid;
+document.getElementById('cname').value= name.replace(/%20/g, " ");
+document.getElementById('cemail').value= email;
+document.getElementById('cmno').value= mobile;
+}
+
+}
+
+</script>
+
+
+</head>
+
+<body onload="load();">
+
+
+
+<div class="container">
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    
+       
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="register.html">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="login.html">Login</a>
+        </li>
+        
+             
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    
+    <div class="carousel-item active">
+        <img src="assets/ai4.jpg" class="d-block w-100" alt="..."  />
+    </div>
+ 
+ 
+
+  </div>
+ 
+</div>
+
+<br>
+
+<div class="panel panel-default" style="background-color:#c9dcef;padding: 10px;">
+ 
+
+<div class="container"> 
+
+  <h4 class="b-login-head text-center">User Profile</h4>
+
+<form class="row g-3" id="profileForm" action="php/profile.php" method="post">
+
+  <input type="hidden" class="form-control" id="cregid" name="cregid">
+  <div class="col-md-6">
+    <label for="cname" class="form-label">Name</label>
+    <input type="text" class="form-control" id="cname" name="cname" disabled>
+  </div>
+  
+  <div class="col-md-6">
+    <label for="cemail" class="form-label">Email</label>
+    <input type="email" class="form-control" id="cemail" disabled>
+  </div>
+
+
+   <div class="col-md-6">
+    <label for="cmno" class="form-label">Mobile No</label>
+    <input type="text" class="form-control" id="cmno" name="cmno" disabled>
+  </div>
+  
+  <!-- <div class="col-md-6">
+    <label for="inputaddress" class="form-label">Address</label>
+    <input type="text" class="form-control" id="inputaddress" disabled>
+  </div>
+ -->
+
+  <div class="col-md-6">
+    <label for="cdob" class="form-label">Date of Birth * </label>
+    <input type="date"  class="form-control" id="cdob" name="cdob" required>
+  </div>
+
+
+  <div class="col-md-6">
+    <label for="cpan" class="form-label">PAN No *</label>
+    <input type="text" class="form-control" id="cpan" name="cpan" maxlength="10" required>
+  </div>
+
+<div class="col-12" style="padding: 10px;">
+
+ <i style="color: red;font-size: 18px;"> The Feilds marked with * are mandatory </i>
+</div>
+
+  
+  <div class="col-12" style="padding: 10px;">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
+
+
+
+</div>
+
+
+
+</div>
+<br>
+
+
+</div>
+
+
+
+
+
+
+
+   
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>
